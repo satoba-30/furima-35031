@@ -50,7 +50,7 @@ has_one :address
 | Column         | Type       | Options         |
 | --------       | ------ ----| --------------  |
 | post_num       | string     | null: false     |
-| prefectures_id |integer     | null: false     |
+| prefecture_id |integer     | null: false     |
 | post_address   |string      | null: false     |
 | address        |string      |null: false      |
 | build          | string     |                 |
