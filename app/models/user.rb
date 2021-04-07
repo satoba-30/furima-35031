@@ -27,5 +27,4 @@ class User < ApplicationRecord
             message: "First name kana Full-width katakana characters"}
             
   validates :birthday,presence: true
-            # format: {message: "Birth date can't be blank"}
 end
