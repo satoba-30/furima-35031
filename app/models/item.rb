@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   
   with_options presence: true do
     validates :name
-    validates :price
+    validates :price,format: {with: /\A[0-9]+\z/ }
     validates :category_id
     validates :text
     validates :status_id

@@ -21,4 +21,7 @@ class User < ApplicationRecord
   validates :birthday
   end
   validates_format_of :password, with: VALID_PASSWORD_REGEX,message: " include both letters and numbers"
+
+
+  has_many :items
 end
