@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!,except: [:index]
+  
+  
   def index
     @items = Item.all
   end
@@ -14,12 +17,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-  end
-
-  def show
   end
 
   private
