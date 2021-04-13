@@ -10,5 +10,5 @@ class Status < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  belongs_to :item
+  has_many :item
 end

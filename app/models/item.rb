@@ -9,13 +9,12 @@ class Item < ApplicationRecord
   belongs_to :post_address
   belongs_to :post_daytime
 
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ },
-                    numericality: { greater_than: 300, less_than: 9_999_999 }
-
   with_options presence: true do
     validates :name, length: { maximum: 40 }
     validates :text, length: { maximum: 1000 }
     validates :image
+    validates :price, format: { with: /\A[0-9]+\z/ },
+                      numericality: { greater_than: 300, less_than: 9_999_999 }
     with_options numericality: { other_than: 1 } do
       validates :category_id
       validates :status_id
