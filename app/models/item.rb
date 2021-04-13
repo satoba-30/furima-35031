@@ -4,8 +4,8 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  has_one :status
-  has_one :delivery_fee
+  belongs_to :status
+  belongs_to :delivery_fee
   belongs_to :post_address
   belongs_to :post_daytime
 
