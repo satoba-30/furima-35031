@@ -11,11 +11,11 @@ RSpec.describe :item, type: :model do
         expect(@item).to be_valid
       end
       it 'priceが300円以上なら出品できる' do
-        @item.price = '400'
+        @item.price = 400
         expect(@item).to be_valid
       end
       it 'priceが9,999,999円以下なら出品できる' do
-        @item.price = '40000'
+        @item.price = 400_000
         expect(@item).to be_valid
       end
     end
@@ -101,7 +101,7 @@ RSpec.describe :item, type: :model do
         expect(@item.errors.full_messages).to include 'Price must be greater than 300'
       end
       it 'priceは9,999,999円以上だと出品できない' do
-        @item.price = 100_000_000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include 'Price must be less than 9999999'
       end
