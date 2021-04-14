@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :items
+  
   VALID_PASSWORD_REGEX = PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)\w{6,}\z/i.freeze
 
   with_options presence: true do
@@ -21,6 +22,4 @@ class User < ApplicationRecord
     validates :birthday
   end
   validates_format_of :password, with: VALID_PASSWORD_REGEX, message: ' include both letters and numbers'
-
-  has_many :items
 end
