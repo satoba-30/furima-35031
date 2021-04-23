@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 before_action :authenticate_user!
 before_action :set_params
 before_action :move_to_top
+before_action :purchased_to_index
 
   def index
     @order_address = OrderAddress.new
@@ -43,6 +44,14 @@ before_action :move_to_top
         redirect_to root_path
       end
   end
+
+  
+  def purchased_to_index
+    if @item.order.present?
+      redirect_to root_path
+    end
+  end
+
 end 
 
 
