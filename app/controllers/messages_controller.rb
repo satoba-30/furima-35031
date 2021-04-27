@@ -2,8 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @message = Message.new(comment_params)
-      @message.save
+    @message = Message.create(comment_params)
       redirect_to root_path
   end
 
